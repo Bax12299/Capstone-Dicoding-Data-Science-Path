@@ -168,7 +168,7 @@ def map_to_keyword(user_input: str, threshold: float = 0.15) -> str:
     idx    = int(np.argmax(scores))
     if scores[idx] >= threshold:
         return keywords[idx]
-    return user_input  # fallback kalau tidak ada yang cukup mirip
+    return user_input
 
 
 # Sidebar
@@ -222,7 +222,7 @@ if predict_btn and user_input:
     with col_left:
         st.subheader("Rekomendasi Utama")
 
-        # Tampilkan keyword hasil mapping — kalau berbeda dari input, beri tahu user
+        # Tampilkan keyword hasil mapping
         if job_mapped.lower() != user_input.lower().strip():
             st.markdown(f"Pekerjaan dideteksi sebagai: **{job_mapped}**")
         else:
